@@ -1,9 +1,13 @@
 import MovieItem from './MovieItem';
 
-const MovieList = ({ movie }:any) => {
+const MovieList = ({ movies = [] }:any) => {
   return (
     <div className="container mx-auto mt-4">
-      <MovieItem movie={movie} />
+      {
+        movies.map((movie:any, index:number) => {
+          return (<MovieItem key={index} movie={movie} />)
+        })
+      }
     </div>
   );
 };

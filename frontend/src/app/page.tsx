@@ -1,17 +1,23 @@
 import Navbar from '../components/Navbar';
 import MovieList from '../components/MovieList';
+import { notFound } from "next/navigation";
 
-const movie = {
-  title: 'Intensamente 2',
-  language: 'Premium Español',
-  poster: 'https://pics.filmaffinity.com/inside_out_2-365634749-mmed.jpg'
-};
+const getMovies = async () => {
+  try {
+    const response = await fetch('http://localhost:3000/movies').then(response => response.json());
+    return response;
+  } catch (err) { 
+    notFound()
+  }
+}
 
-const Home = () => {
+const Home = async () => {
+  const {data: movies } = await getMovies() || []
+
   return (
     <div className="bg-gray-100 min-h-screen">
       <Navbar />
-      <MovieList movie={movie} />
+      <MovieList movies={movies} />
     </div>
   );
 };

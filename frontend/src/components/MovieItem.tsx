@@ -14,7 +14,7 @@ const MovieItem = ({ movie }:any) => {
       </div>
       <button
         className="text-blue-500 ml-4"
-        onClick={() => router.push('/availability')}
+        onClick={() => router.push(`/availability?movieId=${movie.id}`)}
       >
         Ver Disponibilidad
       </button>
