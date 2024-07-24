@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 const getAuditorium = async (movieId:any) => {
   try {
-    const response = await fetch('http://localhost:3000/auditorium/' + movieId).then(response => response.json());
+    const response = await fetch('http://localhost:8080/auditorium/' + movieId).then(response => response.json());
     return response;
   } catch (err) { 
     notFound()

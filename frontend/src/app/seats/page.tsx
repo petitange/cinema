@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 const getSeats = async ({movieId, auditoriumId, scheduleId}:any) => {
   try {
-    const response = await fetch('http://localhost:3000/seats/movie/'+ movieId +'/auditorium/'+ auditoriumId +'/schedule/' + scheduleId ).then(response => response.json());
+    const response = await fetch('http://localhost:8080/seats/movie/'+ movieId +'/auditorium/'+ auditoriumId +'/schedule/' + scheduleId ).then(response => response.json());
     return response;
   } catch (err) { 
     notFound()

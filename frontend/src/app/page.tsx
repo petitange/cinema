@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 const getMovies = async () => {
   try {
-    const response = await fetch('http://localhost:3000/movies').then(response => response.json());
+    const response = await fetch('http://localhost:8080/movies').then(response => response.json());
     return response;
   } catch (err) { 
     notFound()
